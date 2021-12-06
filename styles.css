@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -9,4 +11,101 @@
   --secondBackground: #1a1e21;
   --mainColor: #3860ec;
   --secondColor: #2247ce;
+  --white-color: rgb(255, 255, 255);
+}
+
+.main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--mainBackground);
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90vw;
+  max-width: 700px;
+  padding: 20px;
+  background-color: var(--secondBackground);
+  border-radius: 10px;
+}
+
+.main .container .container-main-content {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0px 20px 0px;
+}
+
+.main .container .title {
+  color: var(--white-color);
+  text-align: center;
+}
+
+.main .container .container-main-content .info {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main .container .container-main-content .cotainer-grid {
+  flex: 1;
+}
+
+.main .container .container-main-content .cotainer-grid .grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 319px;
+}
+
+.main .container .cotainer-grid .grid .box {
+  width: 80px;
+  height: 80px;
+  background-color: var(--mainBackground);
+  border-radius: 10px;
+  margin: 5px;
+  cursor: pointer;
+  transition: 0.9s;
+  color: var(--mainColor);
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main .container .cotainer-grid .grid .box:hover {
+  background-color: rgba(203, 203, 203, 0.1);
+  transform: scale(1.1);
+}
+
+.main .container .reset .cta {
+  width: 160px;
+  height: 60px;
+  outline: none;
+  border: none;
+  background-color: var(--mainColor);
+  color: var(--white-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.9s;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.main .container .reset .cta:hover {
+  background-color: var(--secondColor);
+}
+
+@media screen and (min-width: 768px) {
+  .main .container .container-main-content {
+    flex-direction: row;
+    width: 100%;
+  }
 }
