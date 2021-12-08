@@ -4,10 +4,60 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+
     <link rel="stylesheet" href="styles.css" />
     <title>Tic-Tac-Toe</title>
   </head>
   <body>
+    <div class="main">
+      <div class="container">
+        <h1 class="title">Tic Tac Toe</h1>
+        <div class="container-main-content">
+          <div class="player-info">
+            <div class="player-info-container">
+              <div class="players">
+                <div class="player p1">
+                  <label class="player-label">Player 1</label>
+                  <input type="text" id="p1" placeholder="Name here..." />
+                </div>
+                <div class="player p2">
+                  <label class="player-label">Player 2</label>
+                  <input type="text" id="p2" placeholder="Name here..." />
+                </div>
+              </div>
+              <div class="star-game">
+                <button class="start-btn cta">Star game</button>
+              </div>
+            </div>
+          </div>
+          <div class="cotainer-grid">
+            <div class="grid">
+              <div class="box" id="0"></div>
+              <div class="box" id="1"></div>
+              <div class="box" id="2"></div>
+              <div class="box" id="3"></div>
+              <div class="box" id="4"></div>
+              <div class="box" id="5"></div>
+              <div class="box" id="6"></div>
+              <div class="box" id="7"></div>
+              <div class="box" id="8"></div>
+            </div>
+          </div>
+        </div>
+        <div class="reset">
+          <button class="reset-btn cta" id="cta">
+            Reset <span><i class="fas fa-redo"></i></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
     <script src="main.js"></script>
   </body>
 </html>
