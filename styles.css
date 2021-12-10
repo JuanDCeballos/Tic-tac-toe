@@ -126,6 +126,7 @@
 
 .main .container .container-main-content .cotainer-grid {
   flex: 1;
+  margin-top: 20px;
 }
 
 .main .container .container-main-content .cotainer-grid .grid {
@@ -153,7 +154,6 @@
 }
 
 .main .container .cotainer-grid .grid .box:hover {
-  background-color: rgba(203, 203, 203, 0.1);
   transform: scale(1.1);
 }
 
@@ -166,6 +166,10 @@
   .main .container .container-main-content {
     flex-direction: row;
     width: 100%;
+  }
+
+  .main .container .container-main-content .cotainer-grid {
+    margin-top: 0px;
   }
 
   .main
