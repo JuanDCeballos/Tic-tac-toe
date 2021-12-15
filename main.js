@@ -12,7 +12,7 @@ start.addEventListener('click', () => {
   };
 
   const Gameboard = (() => {
-    const gameboard = [null, null, null, null, null, null, null, null, null];
+    const gameboard = ['', '', '', '', '', '', '', '', ''];
 
     const grid = document.querySelectorAll('.box');
 
@@ -52,7 +52,7 @@ start.addEventListener('click', () => {
         return true;
       } else if (arr.every((el) => el == marker || !marker)) {
         console.log('ci');
-      } else if (arr.every((el) => el !== null)) {
+      } else if (arr.every((el) => el !== '')) {
         document.querySelector('.status').textContent = `The game is a tie`;
         return true;
       }
