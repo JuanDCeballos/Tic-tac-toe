@@ -11,13 +11,8 @@ start.addEventListener('click', () => {
     };
   };
 
-  // const resetInput = (() => {
-  //   document.querySelector('#form').reset();
-  //   document.querySelector('#form1').reset();
-  // })();
-
   const Gameboard = (() => {
-    const gameboard = ['', '', '', '', '', '', '', '', ''];
+    const gameboard = [null, null, null, null, null, null, null, null, null];
 
     const grid = document.querySelectorAll('.box');
 
@@ -29,32 +24,38 @@ start.addEventListener('click', () => {
     };
 
     const checkWin = (arr, marker, name) => {
-      // for (let i = 0; i < arr.length; i++) {
       if (
         (arr[0] == marker && arr[4] == marker && arr[8] == marker) ||
         (arr[2] == marker && arr[4] == marker && arr[6] == marker)
       ) {
-        console.log(`Diagonal, ${name} has won the game.`);
-        return;
+        document.querySelector(
+          '.status'
+        ).textContent = `Diagonal, ${name} has won the game.`;
+        return true;
       } else if (
         (arr[0] == marker && arr[3] == marker && arr[6] == marker) ||
         (arr[1] == marker && arr[4] == marker && arr[7] == marker) ||
         (arr[2] == marker && arr[5] == marker && arr[8] == marker)
       ) {
-        console.log(`Vertical, ${name} has won the game.`);
-        return;
+        document.querySelector(
+          '.status'
+        ).textContent = `Vertical, ${name} has won the game.`;
+        return true;
       } else if (
         (arr[0] == marker && arr[1] == marker && arr[2] == marker) ||
         (arr[3] == marker && arr[4] == marker && arr[5] == marker) ||
         (arr[6] == marker && arr[7] == marker && arr[8] == marker)
       ) {
-        console.log(`Horizontal, ${name} has won the game.`);
-        return;
-      } else {
-        console.log('Draw');
-        return;
+        document.querySelector(
+          '.status'
+        ).textContent = `Horizontal, ${name} has won the game.`;
+        return true;
+      } else if (arr.every((el) => el == marker || !marker)) {
+        console.log('ci');
+      } else if (arr.every((el) => el !== null)) {
+        document.querySelector('.status').textContent = `The game is a tie`;
+        return true;
       }
-      // }
     };
 
     return {
@@ -70,15 +71,16 @@ start.addEventListener('click', () => {
     const playerTwo = Player(document.querySelector('#p2').value, 'O');
 
     let currentPlayer = playerOne;
+    document.querySelector(
+      '.turn'
+    ).textContent = `Is ${currentPlayer.getName()} turn`;
+
+    let isGameOver = false;
 
     Gameboard.grid.forEach((el) => {
       el.addEventListener('click', (e) => {
-        console.log(currentPlayer.getName());
-        const index = e.target.id;
-        if (e.target.textContent == 'X' || e.target.textContent == 'O') {
-          e.target.removeEventListener('click', null);
-          e.target.disabled = true;
-        } else {
+        if (!e.target.textContent && !isGameOver) {
+          const index = e.target.id;
           Gameboard.gameboard[index] = currentPlayer.getMarker();
           Gameboard.render();
           if (
@@ -88,13 +90,19 @@ start.addEventListener('click', () => {
               currentPlayer.getName()
             )
           ) {
-            // el.disabled = true;
+            isGameOver = true;
           }
-        }
-        if (currentPlayer.getMarker() == 'X') {
-          currentPlayer = playerTwo;
-        } else {
-          currentPlayer = playerOne;
+          if (currentPlayer.getMarker() == 'X') {
+            currentPlayer = playerTwo;
+            document.querySelector(
+              '.turn'
+            ).textContent = `Is ${currentPlayer.getName()} turn`;
+          } else {
+            currentPlayer = playerOne;
+            document.querySelector(
+              '.turn'
+            ).textContent = `Is ${currentPlayer.getName()} turn`;
+          }
         }
       });
     });
@@ -105,4 +113,9 @@ start.addEventListener('click', () => {
       el.reset();
     });
   })();
+});
+
+const reset = document.querySelector('#cta');
+reset.addEventListener('click', () => {
+  window.location.reload();
 });
