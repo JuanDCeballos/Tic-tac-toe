@@ -1,6 +1,6 @@
 # Tic Tac Toe
 
-This is tic tac toc game you can play in your browser.
+This is a Tic-Tac-Toe game you can play in your browser.
 
 ## Motivation
 
@@ -20,7 +20,7 @@ Things I learned while I was doing this project:
 - Beautiful UI
   ![main app](images/main.png)
 
-- Responsive desing
+- Responsive design
   ![responsive](images/responsive.png)
 
 ## Technologies
